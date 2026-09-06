@@ -3,35 +3,61 @@ import kotlin.random.Random
 fun main() {
     var playerHealth = 100
     var enemyHealth = 100
-
+    var comp = 0
+    var inHand = listOf(0)
     val sword = listOf(35, 25, 20)
     val axe = listOf(37, 27, 22)
     val bow = listOf(20, 15, 17)
 
-    var weponList = mutableListOf<String>("Sword", "Axe", "Bow")//damage =18,24,12
-    //range cm ,c ,ll
-    //attack for sword head ,body ,foot -->35 ,25, 20
-    //defense low ,back ,jump
-    //
-
     println("Choose a weapon 1 for sword ,2 for axe ,3 for bow")
-    val weapon = readLine()!!.toInt()
-    var playerWeapon = mutableListOf<String>()
-    println("write a to attack on head ,b to attack on body ,c for foot")
+    var playerWeapon = readLine()!!.toInt()
+    if (playerWeapon == 1) inHand = sword
+    else if (playerWeapon == 2) inHand = axe
+    else if (playerWeapon == 3) inHand = bow
 
-    var attack = readLine()!!.toString()
-    println("write a to protect head ,b to protect body ,c for foot")
-    var protect = readLine()!!.toString()
-    var damage = 0
-    val enemyWeapon = sword
-    if (weapon == 1) {
-        playerWeapon = sword
-    } else if (weapon == 2) playerWeapon = axe
-    else if (weapon == 3) playerWeapon = bow
-    while (playerHealth > 0 || enemyHealth > 0) {
-        if (attack == "a") {
-            damage = playerWeapon.elementAt(0)
-        } else if (attack == "b") damage = axe.elementAt(0)
-        else if (attack == "c") damage = bow.elementAt(0)
+    while (playerHealth > 10 && enemyHealth > 10) {
+        var enemy = Enemy(bow)
+        val damage = enemy.first
+        var diffance = enemy.second
+
+        println("Enter 1 to attack head ,2 to body ,3 to foot")
+        var playerAttack = readLine()!!.toInt()
+        println("Enter 1 to protect head ,2 to body ,3 to foot")
+        var playerProtect = readLine()!!.toInt()
+
+        comp = bow[playerProtect - 1]
+        if (comp == damage) {
+            println("safe")
+        } else playerHealth = playerHealth - damage
+        if (playerAttack == diffance) {
+            println("enemy dodge")
+        } else enemyHealth = enemyHealth - inHand[playerAttack]
+        println("Enemy Health $enemyHealth")
+        println("Player Health $playerHealth")
+
     }
 }
+
+fun Enemy(Weapon: List<Int>): Pair<Int, Int> {
+    var attack = Random.nextInt(0, 3)
+
+    var damage = 0
+    if (attack == 0) {
+        damage = Weapon[0]
+    }//on head
+    else if (attack == 1) {
+        damage = Weapon[1]
+    }//on body
+    else if (attack == 2) {
+        damage = Weapon[2]
+    }//on foot
+    else println("enter a valid number")
+
+    var diffance = Random.nextInt(0, 3)
+
+    return Pair(damage, diffance)
+}
+//fun player(Weapon :List<Int>): Int {
+//
+//
+//}
