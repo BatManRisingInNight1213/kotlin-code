@@ -3,7 +3,7 @@ class Account (
     val accountName:String,
     var balance:Int
 ){
-    fun deposite(accountNumber: Int){
+    fun deposit(accountNumber: Int){
         println("Enter Amount to deposit:")
         var depositAmount = readLine()!!.toInt()
         println("Do u want to deposit Rs.$depositAmount ,y for yes / n for no")
