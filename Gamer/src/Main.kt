@@ -57,7 +57,3 @@ fun Enemy(Weapon: List<Int>): Pair<Int, Int> {
 
     return Pair(damage, diffance)
 }
-//fun player(Weapon :List<Int>): Int {
-//
-//
-//}
