@@ -20,5 +20,4 @@ class Account (
         if (confirm == "y"){balance =balance- withdrawAmount}
         println("Your current balance =$balance")
     }
-
 }

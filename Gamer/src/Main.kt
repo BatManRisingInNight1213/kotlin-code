@@ -8,7 +8,7 @@ fun main() {
     val sword = listOf(35, 25, 20)
     val axe = listOf(37, 27, 22)
     val bow = listOf(20, 15, 17)
-
+    Ground()
     println("Choose a weapon 1 for sword ,2 for axe ,3 for bow")
     var playerWeapon = readLine()!!.toInt()
     if (playerWeapon == 1) inHand = sword
@@ -56,4 +56,49 @@ fun Enemy(Weapon: List<Int>): Pair<Int, Int> {
     var diffance = Random.nextInt(0, 3)
 
     return Pair(damage, diffance)
+}
+
+fun Ground(){
+    val len = 30
+    val wid =30
+    var x_position = 15
+    var y_position = 10
+
+    val newPosition = Movement(x_position, y_position)
+
+    x_position = newPosition.first
+    y_position = newPosition.second
+
+    for (i in 1..len) {
+        for (j in 1..wid) {
+            if ((i == 1 || j==1) || (i==30  || j==30) || (i==1 || j==30) || (i==30 || j==1)){
+                print("\uD83C\uDF33")// tree emoji
+            }
+
+            print("\uD83D\uDFE9 ") //green block
+            if (i==x_position && j == y_position) {
+                print("X ")
+            }
+        }
+        println()
+    }
+}
+
+fun Movement(x_position: Int, y_position: Int): Pair<Int, Int> {
+    var x = x_position
+    var y = y_position
+
+    println("Enter w to move forward ,\ns to backward ,\na to move left ,\nd to right")
+
+    var input = readLine()!!.toString()
+    var working = true
+    print(x)
+    if (working) {
+        if (input.equals("w",ignoreCase = true)) x++
+        else if (input.equals("d",ignoreCase = true)) y++
+        else if (input.equals("a", ignoreCase = true)) y--
+        else if (input.equals("s", ignoreCase = true)) x--
+    }
+    print(x)
+    return Pair(x, y)
 }

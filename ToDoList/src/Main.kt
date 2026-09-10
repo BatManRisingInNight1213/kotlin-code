@@ -27,8 +27,10 @@ fun main() {
         } else if (option == 3) {
             println("which task is complete")
             var taskNo = readLine()!!.toInt()
-           // taskList.removeAt(taskNo - 1)
-            if (taskList != null) {completeTasks.add(taskList.removeAt(taskNo - 1))}
+            // taskList.removeAt(taskNo - 1)
+            if (taskList != null) {
+                completeTasks.add(taskList.removeAt(taskNo - 1))
+            }
 
             println("Task completed :$completeTasks")
             println("What to do next:$taskList")
@@ -38,7 +40,9 @@ fun main() {
         } else if (option == 4) {
             println("Which task to del")
             var taskNo = readLine()!!.toInt()
-            if (taskList != null) {println("We are deleting [${taskList.removeAt(taskNo - 1)}]")}
+            if (taskList != null) {
+                println("We are deleting [${taskList.removeAt(taskNo - 1)}]")
+            }
             //taskList.removeAt(taskNo - 1)
 
             println("task deleted")
@@ -56,7 +60,7 @@ fun main() {
     }
 }
 
-fun checkType(option: Any):Boolean {
+fun checkType(option: Any): Boolean {
     if (option is Int) {
         return true
     } else println("Enter valid number")
