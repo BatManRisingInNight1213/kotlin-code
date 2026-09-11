@@ -36,6 +36,7 @@ fun main() {
         } else playerHealth = playerHealth - damage
         if (playerAttack == diffance) {
             println("enemy dodge")
+
         } else enemyHealth = enemyHealth - inHand[playerAttack]
         println("Enemy Health $enemyHealth")
         println("Player Health $playerHealth")
@@ -69,25 +70,22 @@ fun Ground(){
     var x_position = 1
     var y_position = 1
 
-    val newPosition = Movement(x_position, y_position)
+    var newPosition = Movement(x_position, y_position)
 
     x_position = newPosition.first
     y_position = newPosition.second
 
     for (i in 1..len) {
         for (j in 1..wid) {
-            if ((i == 1 || j==1) || (i==30  || j==30) || (i==1 || j==30) || (i==30 || j==1)){
+            if ((i == 1 || j == 1) || (i == 30 || j == 30) || (i == 1 || j == 30) || (i == 30 || j == 1)) {
                 print("\uD83C\uDF33")// tree emoji
             }
-
             print("\uD83D\uDFE9 ") //green block
-            if (i==x_position && j == y_position) {
+            if (i == x_position && j == y_position) {
                 print("X ") //player position
-            }
-        }
+            } }
         println()
-    }
-}
+    }}
 
 fun Movement(x_position: Int, y_position: Int): Pair<Int, Int> {
     var x = x_position
@@ -103,6 +101,5 @@ fun Movement(x_position: Int, y_position: Int): Pair<Int, Int> {
         else if (input.equals("a", ignoreCase = true)) y--
         else if (input.equals("s", ignoreCase = true)) x--
     }
-
     return Pair(x, y)
 }
