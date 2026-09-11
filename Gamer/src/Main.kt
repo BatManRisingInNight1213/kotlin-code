@@ -103,3 +103,8 @@ fun Movement(x_position: Int, y_position: Int): Pair<Int, Int> {
     }
     return Pair(x, y)
 }
+fun Player() {
+    var hunger = 100
+    var health = 100
+    val weapon = listOf<Int>()
+}
