@@ -20,4 +20,7 @@ class Account (
         if (confirm == "y"){balance =balance- withdrawAmount}
         println("Your current balance =$balance")
     }
+    fun SeeBalance(accountNumber: Int){
+        println(balance)
+    }
 }
