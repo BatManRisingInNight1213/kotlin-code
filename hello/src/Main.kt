@@ -1,7 +1,7 @@
 import kotlin.random.Random
 
 fun main() {
-    challenege()
+    challenge()
     println("Enter a no. b/w 1 - 100")
     var noOfGuess = 0
     val randomNo = Random.nextInt(0, 100)
@@ -26,15 +26,12 @@ fun main() {
 
     }}
 
-fun challenege(){
+fun challenge(){
     var count=0
     var last=readLine()!!.toInt()
     for (i in 0..last){
         if (i%2==0){
             count++
-            println(i)
-
-        }
-    }
+            println(i) } }
     println(count)
 }
