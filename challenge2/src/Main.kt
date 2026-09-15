@@ -2,6 +2,7 @@ fun main()
 {
     var a: Array<Int> = arrayOf(1,4,4,344,5,36)
  println(largest(a))
+    println(smallest(a))
 }
 fun largest(a: Array<Int>):Int {
     var max =0
