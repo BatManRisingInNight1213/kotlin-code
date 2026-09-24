@@ -2,6 +2,7 @@ fun main() {
     var a: Array<Int> = arrayOf(1, 4, 4, 344, 5, 36)
     println(largest(a))
     println(smallest(a))
+    println(sum(a))
 }
 
 fun largest(a: Array<Int>): Int {
@@ -9,7 +10,6 @@ fun largest(a: Array<Int>): Int {
     var temp = 0
     for (i in a) {
         temp = i
-
         max = maxOf(max, temp)
     }
     println("largest number is:")
@@ -25,4 +25,12 @@ fun smallest(a: Array<Int>): Int {
     }
     println("smallest number is:")
     return min
+}
+fun sum(a: Array<Int>): Int {
+    var sum = 0
+    for (i in a){
+        sum +=i
+    }
+    println("sum of elements is:")
+    return sum
 }
