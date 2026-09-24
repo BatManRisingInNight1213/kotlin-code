@@ -9,6 +9,7 @@ fun largest(a: Array<Int>): Int {
     var temp = 0
     for (i in a) {
         temp = i
+
         max = maxOf(max, temp)
     }
     println("largest number is:")
