@@ -22,7 +22,7 @@ fun main(){
         comp =Random.nextInt(0,3)
     }
 }
-println("You Won:$userpoint")
+println("You Won :$userpoint")
 println("computer Won:$compPoints")
 
 }
